@@ -5,6 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+#root{
+  height: 100%;
+  background-image: url('./img/fundo.png');
+  background-size: cover;
 }
 
 code {
