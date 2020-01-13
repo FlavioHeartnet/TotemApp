@@ -20,11 +20,7 @@ class App extends Component {
             menu: "Arena Conference",
             link: "/arenaconference",
         },
-        {
-            key: 3,
-            menu: "Dizimos e Ofertas",
-            link: "/",
-        },
+       
         {
             key: 4,
             menu: "Pesquisa de satisfação", 
@@ -46,27 +42,28 @@ class App extends Component {
 
   render(){
     return (
-      <div className="ui container MainContainer text-center">
-        <Grid columns={3}>
-          <GridColumn >
-            <Image src={Logo} size='medium' />
-          </GridColumn>
-          <GridColumn>
-            <h1 className="headerTopAjudst"> Seja bem vindo</h1>
-          </GridColumn>
-          <GridColumn/>
-        </Grid>
-        <p className="subtittleTop">
-          Aqui você poderá ter acesso a diversas facilidades digitais, como obter informações sobre nossos eventos e calendário da igreja,
-          poder passar dizimos e ofertas e muito mais!
-        </p>
-        <div className="ui middle aligned center aligned grid text-center MainContainer">
-            <Switch>
-                <Route path={"/"} exact render={() => <MainMenuButtons listMenu={this.state.listMenu} />} />
-                <Route path={"/arenaconference"} exact component={ArenaConference} />
-            </Switch>  
-        </div>
-        
+      <div className="ui ui middle aligned center aligned grid container MainContainer text-center">
+        <div className="column">
+          <Grid columns={3}>
+            <GridColumn >
+              <Image src={Logo} size='medium' />
+            </GridColumn>
+            <GridColumn>
+              <h1 className="headerTopAjudst"> Seja bem vindo</h1>
+            </GridColumn>
+            <GridColumn/>
+          </Grid>
+          <p className="subtittleTop">
+            Aqui você poderá ter acesso a diversas facilidades digitais, como obter informações sobre nossos eventos e calendário da igreja,
+            poder passar dizimos e ofertas e muito mais!
+          </p>
+          <div className="ui middle aligned center aligned grid text-center">
+              <Switch>
+                  <Route path={"/"} exact render={() => <MainMenuButtons listMenu={this.state.listMenu} />} />
+                  <Route path={"/arenaconference"} exact component={ArenaConference} />
+              </Switch>  
+          </div>
+        </div> 
       </div>
     );
   }
