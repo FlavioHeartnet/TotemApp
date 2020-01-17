@@ -5,10 +5,11 @@ import 'semantic-ui-css/semantic.min.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter, Route} from 'react-router-dom'
+import firebase from './Firebase';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Route path="/" component={App}/>
+        <Route path="/" render={()=> <App firebase={firebase}/>}/>
     </BrowserRouter>   
 , document.getElementById('root'));
 

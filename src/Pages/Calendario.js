@@ -6,29 +6,7 @@ import ReactDOM from 'react-dom';
 
 class Calendario extends Component {
 
-    state = {
-        events:[
-            {
-                title: 'Arena Jovem',
-                start: '2020-01-18'
-            },
-            {
-                title: 'Culto da Familia',
-                start: '2020-01-12',
-            },
-            {
-                id: 999,
-                title: 'Culto de Milagres',
-                start: '2020-01-16T16:00:00'
-            },
-            {
-                id: 999,
-                title: 'Culto de Milagres',
-                start: '2020-01-23T16:00:00'
-            },
-            
-        ],		
-}
+
     render(){
         return(
             <div className="">
@@ -43,7 +21,7 @@ class Calendario extends Component {
                 navLinks= {true} // can click day/week names to navigate views
                 editable= {false}
                 eventLimit= {true} // allow "more" link when too many events
-                events = {this.state.events}
+                events = {this.props.events}
                 locale = "pt"	
                 />
             </div>
