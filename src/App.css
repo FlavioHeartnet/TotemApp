@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.fc-title{
+  font-size: 15px!important;
+  font-weight: bold!important;
+}
+
+.fc-content{
+  background-color: #da0100!important;
+
+}
+
 .subtittleTop{
   font-size: 20px;
   margin-top: 2em!important;
