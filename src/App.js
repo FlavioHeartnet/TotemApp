@@ -56,34 +56,27 @@ class App extends Component {
   ],	
 }
 
-  formataData = (d) =>{
-    let date = new Date();
-    return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate()
-  }
 
   componentDidMount(){
       const {firebase} = this.props;
-      let ref = firebase.firestore().collection('Calendario').get();
-      ref.then((s)=>{
-        s.forEach((d)=>{
-          const data = d.data();
-          const array = [...this.state.events, {
-            id: data.id,
-            start: Dateformat(data.START.toDate(),"yyyy-mm-dd"),
-            title: data.TITLE
-          }];
-          console.log(array);
+            firebase.firestore().collection('Calendario').onSnapshot(snapshot => {
+          const allCalendar = snapshot.docs.map(doc => ({
+               id: doc.data().id,
+               start: Dateformat(doc.data().START.toDate(),"yyyy-mm-dd"),
+               title: doc.data().TITLE
+           })) ;
+          console.log(allCalendar);
           this.setState({
-            events:array
+              events:allCalendar
           });
-        })
+
       });
      
   }
   
   render(){
     return (
-      <div className="ui ui middle aligned center aligned grid container MainContainer text-center">
+      <div className="ui ui middle aligned center aligned grid container MainContainer text-center ">
         <div className="column">
           <Grid columns={3}>
             <GridColumn >
@@ -95,8 +88,8 @@ class App extends Component {
             <GridColumn/>
           </Grid>
           <p className="subtittleTop">
-            Aqui você poderá ter acesso a diversas facilidades digitais, como obter informações sobre nossos eventos e calendário da igreja,
-            poder passar dizimos e ofertas e muito mais!
+            Aqui você poderá ter acesso a diversas facilidades digitais, como obter informações sobre nossos eventos, calendário da igreja
+            e muito mais!
           </p>
           <div className="text-center">
               <Switch>
